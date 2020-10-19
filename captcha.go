@@ -5,7 +5,7 @@ import (
 	"github.com/mojocn/base64Captcha"
 )
 
-func Get(width, height int) map[string]interface{} {
+func Get(width, height, len int) map[string]interface{} {
 	if width == 0 {
 		width = 240
 	}
@@ -18,7 +18,7 @@ func Get(width, height int) map[string]interface{} {
 		Width:      width,
 		MaxSkew:    0.7,
 		DotCount:   80,
-		CaptchaLen: 6,
+		CaptchaLen: len,
 	}
 
 	id, cap := base64Captcha.GenerateCaptcha("", configDigit)
